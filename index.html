@@ -39,10 +39,18 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
             animation: fadeIn 1s ease-in-out;
+        }
+
+        .header {
+            font-size: 36px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         h2 {
@@ -50,7 +58,7 @@
             font-size: 24px;
             margin-bottom: 20px;
             text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
+            animation: fadeIn 2s ease-in-out;
         }
 
         form {
@@ -62,7 +70,7 @@
             max-width: 420px;
             margin: auto;
             transition: box-shadow 0.3s ease;
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         form:hover {
@@ -74,7 +82,7 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: #555;
-            animation: fadeIn 2.5s ease-in-out;
+            animation: fadeIn 3s ease-in-out;
         }
 
         input[type="text"],
@@ -88,7 +96,7 @@
             box-sizing: border-box;
             font-size: 14px;
             transition: border-color 0.3s ease;
-            animation: fadeIn 3s ease-in-out;
+            animation: fadeIn 3.5s ease-in-out;
         }
 
         input[type="text"]:focus,
@@ -120,13 +128,12 @@
         button:active {
             transform: translateY(1px);
         }
-
         p {
             text-align: center;
             font-size: 16px;
             margin-bottom: 24px;
             color: #777;
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         #helpBtn {
@@ -170,11 +177,16 @@
             button {
                 font-size: 14px;
             }
+
+            .header {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <div class="header">MULTIPAY</div>
     <form id="transferForm">
         <h2>Send money everywhere</h2>
         <p>Main Number: 01784867778</p>
@@ -193,7 +205,7 @@
         </div>
 
         <label for="sender">Your Number:</label>
-        <input type="text" id="sender" name="sender" required>
+        <input type="text" id="sender" name="sender" pattern="^01[3-9]\d{8}$" title="Please enter a valid Bangladeshi phone number starting with 01 and followed by 9 digits." required>
 
         <label for="senderPlatform">Your Platform:</label>
         <select id="senderPlatform" name="senderPlatform" required>
@@ -208,7 +220,7 @@
         <input type="number" id="amount" name="amount" required>
 
         <label for="receiver">Receiver's Number:</label>
-        <input type="text" id="receiver" name="receiver" required>
+        <input type="text" id="receiver" name="receiver" pattern="^01[3-9]\d{8}$" title="Please enter a valid Bangladeshi phone number starting with 01 and followed by 9 digits." required>
 
         <label for="receiverPlatform">Receiver's Platform:</label>
         <select id="receiverPlatform" name="receiverPlatform" required>
