@@ -146,6 +146,7 @@
         }
 
         #helpText {
+            opacity: 0;
             display: none;
             background-color: #e9ecef;
             padding: 15px;
@@ -154,7 +155,7 @@
             text-align: left;
             font-size: 14px;
             color: #555;
-            animation: fadeIn 1s ease-in-out;
+            transition: opacity 0.5s ease;
         }
 
         @media (max-width: 600px) {
@@ -242,7 +243,13 @@
 
         document.getElementById('helpBtn').addEventListener('click', function () {
             const helpText = document.getElementById('helpText');
-            helpText.style.display = helpText.style.display === 'block' ? 'none' : 'block';
+            if (helpText.style.display === 'block') {
+                helpText.style.opacity = '0';
+                setTimeout(() => helpText.style.display = 'none', 500); // Adjust to match your fade-out duration
+            } else {
+                helpText.style.display = 'block';
+                setTimeout(() => helpText.style.opacity = '1', 10); // Small delay to trigger CSS transition
+            }
         });
     </script>
 </body>
